@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import { User } from '../models/user';
 import { CustomException } from '../exceptions/customException';
 
-const jwtSecret = process.env.JWT_SECRET || 'secret'; 
+const jwtSecret = 'secret'; 
 
 export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers['authorization']?.split(' ')[1];

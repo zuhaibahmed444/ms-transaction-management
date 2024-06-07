@@ -7,11 +7,10 @@ import { InvalidCredentialsException } from '../exceptions/InvalidCredentialsExc
 
 @injectable()
 export class UserService {
-  private jwtSecret = process.env.JWT_SECRET || 'secret'; 
+  private jwtSecret = 'secret'; 
 
   public async signup(username: string, password: string): Promise<UserInterface> {
     const existingUser = await User.findOne({ username });
-    console.log("USEERRRR",existingUser);
     if (existingUser) {
       throw new UserAlreadyExistsException();
     }
