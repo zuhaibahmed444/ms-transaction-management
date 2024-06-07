@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 import { inject } from 'inversify';
 import { controller, httpGet, httpPut, requestParam } from 'inversify-express-utils';
 import { TransactionService } from '../services/transactionService';
-import { TYPES } from '../types';
-
-@controller('/transactions')
+import { TYPES } from '../types/types';
+import { authMiddleware } from '../middleware/auth'
+@controller('/transactions',authMiddleware)
 export class TransactionController {
   constructor(
     @inject(TYPES.TransactionService) private transactionService: TransactionService

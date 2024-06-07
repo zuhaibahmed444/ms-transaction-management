@@ -3,7 +3,7 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import { container } from './inversify.config';
-import './controllers/transactionController';
+import './controllers/index';
 import dotenv from 'dotenv';
 
 
